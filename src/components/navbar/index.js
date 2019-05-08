@@ -1,6 +1,9 @@
 import React from 'react'
-import './styles.scss'
+import SearchBar from '../searchBar'
+
 import pokeball from '../../assets/images/pokeball.png'
+
+import './styles.scss'
 
 const Navbar = () => {
   return (
@@ -12,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className="menu">
           <div>Menu</div>
-          <div>Search</div>
+          <SearchBar />
         </div>
       </div>
     </div>

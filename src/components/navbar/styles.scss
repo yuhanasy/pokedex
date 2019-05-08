@@ -28,10 +28,8 @@
     }
 
     .menu {
-      div {
-        display: inline-block;
-        width: 100px;
-      }
+      display: flex;
+      align-items: center;
     }
   }
 }

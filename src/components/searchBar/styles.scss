@@ -1,0 +1,25 @@
+.input-wrapper {
+  height: 32px;
+  padding: 10px;
+  background-color: #4d647833;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  .input {
+    width: 200px;
+    margin: 0 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+}
