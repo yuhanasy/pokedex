@@ -1,0 +1,26 @@
+.navbar {
+  height: 60px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #4d647833;
+
+  .navbar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      width: 100px;
+      background-color: coral;
+    }
+
+    .menu {
+      div {
+        display: inline-block;
+        width: 100px;
+      }
+    }
+  }
+}
