@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Layout, Grid } from '../components/layout'
 import { Card } from '../components/card'
 
-import { getByCategory, getCards } from '../utils/api/apiHelpers'
+import { getByCategory } from '../utils/api/apiHelpers'
 
 class ListItems extends Component {
   state = {
@@ -42,43 +42,15 @@ class ListItems extends Component {
   getItems = category => {
     getByCategory(category)
       .then(res => res.data)
-      .then(data => {
-        if (category === 'cards') {
-          const items = data.cards.map(card => card.id)
-          this.setState({ items })
-        } else {
-          this.setState({ items: data[category] })
-        }
-      })
-  }
-
-  getCards = (category, type) => {
-    this.getCardsByType(category, type)
-
-    this.setState({ category: 'cards' })
-  }
-
-  getCardsByType = (category, type) => {
-    getCards(category, type)
-      .then(res => res.data)
-      .then(data => {
-        const items = data.cards.map(card => card.id)
-        this.setState({ items })
-      })
-  }
-
-  renderCards = cards => {
-    return cards.map((card, idx) => (
-      <Link to={`/cards/${card}`} key={card}>
-        <Card>{card}</Card>
-      </Link>
-    ))
+      .then(data => this.setState({ items: data[category].slice(0, 4) }))
   }
 
   renderCategoryList = (items, category) => {
     return items.map((item, idx) => (
       <Card key={idx}>
-        <div onClick={() => this.getCards(category, item)}>{item}</div>
+        <Link to={`/cards?${category}=${item}`}>
+          <div>{item}</div>
+        </Link>
       </Card>
     ))
   }
@@ -87,15 +59,9 @@ class ListItems extends Component {
     const { items, category } = this.state
 
     return (
-      <div>
-        <Layout>
-          <Grid>
-            {category === 'cards'
-              ? this.renderCards(items)
-              : this.renderCategoryList(items, category)}
-          </Grid>
-        </Layout>
-      </div>
+      <Layout>
+        <Grid>{this.renderCategoryList(items, category)}</Grid>
+      </Layout>
     )
   }
 }
