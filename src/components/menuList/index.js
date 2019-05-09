@@ -7,7 +7,7 @@ const MenuList = ({ menuList }) => {
   return (
     <div className="menu-list">
       {menuList.map(item => (
-        <NavLink to={item.value} key={item.value}>
+        <NavLink to={`/${item.value}`} key={item.value}>
           {item.label}
         </NavLink>
       ))}

@@ -1,10 +1,10 @@
 import pokemontcg from './api'
 
-export const getCards = (paramsName, params) => {
+export const getCards = (params, paramsName) => {
   if (paramsName && params) {
     return pokemontcg.get('/cards', {
       params: {
-        [paramsName]: params,
+        [params]: paramsName,
       },
     })
   } else {
