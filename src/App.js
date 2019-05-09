@@ -1,26 +1,28 @@
 import React from 'react'
 import Navbar from './components/navbar'
-import logo from './logo.svg'
+import { Layout, Grid } from './components/layout'
+import { Card } from './components/card'
+
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Grid>
+          <Card>hahaha</Card>
+          <Card>adkajsdn</Card>
+          <Card>aiosniasc</Card>
+          <Card>aoisnaois</Card>
+          <Card>aisfnoai</Card>
+          <Card>asinsamck</Card>
+          <Card>yphcusnc</Card>
+          <Card>ajsnjash</Card>
+          <Card>jasndjka</Card>
+          <Card>iosahncs</Card>
+        </Grid>
+      </Layout>
     </div>
   )
 }
