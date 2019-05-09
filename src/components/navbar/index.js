@@ -1,9 +1,29 @@
 import React from 'react'
 import SearchBar from '../searchBar'
+import MenuList from '../menuList'
 
 import pokeball from '../../assets/images/pokeball.png'
 
 import './styles.scss'
+
+const menuList = [
+  {
+    value: 'cards',
+    label: 'All Cards',
+  },
+  {
+    value: 'types',
+    label: 'Types',
+  },
+  {
+    value: 'subtypes',
+    label: 'Subtypes',
+  },
+  {
+    value: 'supertypes',
+    label: 'Supertypes',
+  },
+]
 
 const Navbar = () => {
   return (
@@ -14,7 +34,7 @@ const Navbar = () => {
           <div className="logo-text">Pokedex</div>
         </div>
         <div className="menu">
-          <div>Menu</div>
+          <MenuList menuList={menuList} />
           <SearchBar />
         </div>
       </div>
