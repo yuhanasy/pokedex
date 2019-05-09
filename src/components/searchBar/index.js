@@ -24,6 +24,18 @@ class SearchBar extends Component {
     console.log(query)
   }
 
+  closeButtonToggle = () => {
+    const { query } = this.state
+    if (query.length) {
+      return ''
+    } else return 'hidden'
+  }
+
+  resetSearchInput = () => {
+    const query = ''
+    this.setState({ query })
+  }
+
   render() {
     const { query } = this.state
 
@@ -39,7 +51,12 @@ class SearchBar extends Component {
             value={query}
           />
         </form>
-        <img className="icon hidden" src={closeIcon} alt="" />
+        <img
+          className={`icon ${this.closeButtonToggle()}`}
+          onClick={this.resetSearchInput}
+          src={closeIcon}
+          alt=""
+        />
       </div>
     )
   }
