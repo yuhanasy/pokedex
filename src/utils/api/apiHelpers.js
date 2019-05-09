@@ -12,14 +12,6 @@ export const getCards = (paramsName, params) => {
   }
 }
 
-export const getTypes = () => {
-  return pokemontcg.get('/types')
-}
-
-export const getSubtypes = () => {
-  return pokemontcg.get('/subtypes')
-}
-
-export const getSupertypes = () => {
-  return pokemontcg.get('./supertypes')
+export const getByCategory = category => {
+  return pokemontcg.get(category)
 }
