@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import SearchBar from '../searchBar'
 import MenuList from '../menuList'
 
@@ -29,10 +30,12 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-wrapper">
-        <div className="logo">
-          <img className="logo-img" src={pokeball} alt="Pokedex" />
-          <div className="logo-text">Pokedex</div>
-        </div>
+        <Link to="/">
+          <div className="logo">
+            <img className="logo-img" src={pokeball} alt="Pokedex" />
+            <div className="logo-text">Pokedex</div>
+          </div>
+        </Link>
         <div className="menu">
           <MenuList menuList={menuList} />
           <SearchBar />

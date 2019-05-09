@@ -1,29 +1,22 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './components/navbar'
-import { Layout, Grid } from './components/layout'
-import { Card } from './components/card'
+import Home from './views/Home'
+import ListItems from './views/ListItems'
+import Details from './views/Details'
 
-import './App.css'
-
-function App() {
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Layout>
-        <Grid>
-          <Card>hahaha</Card>
-          <Card>adkajsdn</Card>
-          <Card>aiosniasc</Card>
-          <Card>aoisnaois</Card>
-          <Card>aisfnoai</Card>
-          <Card>asinsamck</Card>
-          <Card>yphcusnc</Card>
-          <Card>ajsnjash</Card>
-          <Card>jasndjka</Card>
-          <Card>iosahncs</Card>
-        </Grid>
-      </Layout>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/:category" component={ListItems} />
+          <Route path="/cards/:card_id" component={Details} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   )
 }
 
