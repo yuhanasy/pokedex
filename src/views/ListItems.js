@@ -4,9 +4,13 @@ import { Layout, Grid } from '../components/layout'
 import { Card } from '../components/card'
 
 import { getByCategory } from '../utils/api/apiHelpers'
+import Loading from '../components/loading'
+import NetworkError from '../components/networkError'
 
 class ListItems extends Component {
   state = {
+    isLoading: true,
+    isError: false,
     items: [],
     category: '',
   }
@@ -27,6 +31,8 @@ class ListItems extends Component {
   componentDidUpdate(prevProps) {
     const { category } = this.props.match.params
     if (prevProps.match.params.category !== category) {
+      const isLoading = true
+      this.setState({ isLoading })
       this.getItems(category)
 
       let param = category.slice()
@@ -42,7 +48,15 @@ class ListItems extends Component {
   getItems = category => {
     getByCategory(category)
       .then(res => res.data)
-      .then(data => this.setState({ items: data[category].slice(0, 4) }))
+      .then(data => {
+        const isLoading = false
+        this.setState({ items: data[category].slice(0, 4), isLoading })
+      })
+      .catch(e => {
+        const isError = true
+        this.setState({ isError })
+        console.log(e)
+      })
   }
 
   renderCategoryList = (items, category) => {
@@ -56,11 +70,19 @@ class ListItems extends Component {
   }
 
   render() {
-    const { items, category } = this.state
+    const { isLoading, isError, items, category } = this.state
 
     return (
       <Layout>
-        <Grid>{this.renderCategoryList(items, category)}</Grid>
+        <Grid>
+          {isLoading ? (
+            <Loading />
+          ) : isError ? (
+            <NetworkError />
+          ) : (
+            this.renderCategoryList(items, category)
+          )}
+        </Grid>
       </Layout>
     )
   }

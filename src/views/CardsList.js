@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 import { Layout, Grid } from '../components/layout'
 import { Card } from '../components/card'
+import Loading from '../components/loading'
+import NetworkError from '../components/networkError'
 
 import { getCards } from '../utils/api/apiHelpers'
 
 class CardsList extends Component {
   state = {
+    isLoading: true,
+    isError: false,
     cards: [],
   }
 
@@ -23,10 +27,35 @@ class CardsList extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      const isLoading = true
+      this.setState({ isLoading })
+
+      if (this.props.location.search) {
+        const parsed = queryString.parse(this.props.location.search)
+        const param = Object.keys(parsed)[0]
+        const paramName = parsed[param]
+
+        this.getItems(param, paramName)
+      } else {
+        this.getItems()
+      }
+    }
+  }
+
   getItems = (param, paramName) => {
     getCards(param, paramName)
       .then(res => res.data)
-      .then(data => this.setState({ cards: data.cards.slice(0, 4) }))
+      .then(data => {
+        const isLoading = false
+        this.setState({ cards: data.cards.slice(0, 4), isLoading })
+      })
+      .catch(e => {
+        const isError = true
+        this.setState({ isError })
+        console.log(e)
+      })
   }
 
   renderCards = cards => {
@@ -40,11 +69,19 @@ class CardsList extends Component {
   }
 
   render() {
-    const { cards } = this.state
+    const { cards, isLoading, isError } = this.state
 
     return (
       <Layout>
-        <Grid>{this.renderCards(cards)}</Grid>
+        <Grid>
+          {isLoading ? (
+            <Loading />
+          ) : isError ? (
+            <NetworkError />
+          ) : (
+            this.renderCards(cards)
+          )}
+        </Grid>
       </Layout>
     )
   }

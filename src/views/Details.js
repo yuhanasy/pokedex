@@ -4,10 +4,13 @@ import { Card } from '../components/card'
 import CardDetails from '../components/CardDetails'
 
 import { getCardDetails } from '../utils/api/apiHelpers'
+import Loading from '../components/loading'
+import NetworkError from '../components/networkError'
 
 class Details extends Component {
   state = {
     isLoading: true,
+    isError: false,
     card: {},
   }
 
@@ -26,13 +29,22 @@ class Details extends Component {
           isLoading,
         })
       })
+      .catch(e => {
+        const isError = true
+        this.setState({ isError })
+        console.log(e)
+      })
   }
 
   render() {
-    const { card, isLoading } = this.state
+    const { card, isLoading, isError } = this.state
     return (
       <Layout>
-        {!isLoading && (
+        {isLoading ? (
+          <Loading />
+        ) : isError ? (
+          <NetworkError />
+        ) : (
           <Grid>
             <div className="card-img">
               <Card>
