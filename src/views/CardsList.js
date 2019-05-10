@@ -49,7 +49,7 @@ class CardsList extends Component {
       .then(res => res.data)
       .then(data => {
         const isLoading = false
-        this.setState({ cards: data.cards.slice(0, 4), isLoading })
+        this.setState({ cards: data.cards, isLoading })
       })
       .catch(e => {
         const isError = true

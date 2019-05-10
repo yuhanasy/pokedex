@@ -1,42 +1,142 @@
-.detail-header {
-  width: 400px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.card-details {
+  max-width: 600px;
+  margin-left: 40px;
+
+  .detail-header {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .detail-text {
+    margin: 40px 0;
+  }
+
+  h2 {
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2a3c4b;
+    display: inline;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #a6b0b6;
+    display: inline;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2a3c4b;
+    display: inline;
+  }
+
+  h5 {
+    font-size: 12px;
+    font-weight: 300;
+    color: #2a3c4b;
+    text-transform: uppercase;
+    display: inline;
+  }
+
+  p {
+    margin: 10px 0;
+    color: #a6b0b6;
+  }
 }
 
-h2 {
-  margin-right: 10px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #2a3c4b;
-  display: inline;
+.detail-power {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  .box {
+    width: 180px;
+    padding: 10px;
+    margin: 20px;
+    background-color: #e3edf5;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .box-title {
+      margin: 4px 0;
+    }
+
+    .box-body {
+      margin: 4px 0;
+    }
+  }
 }
 
-h3 {
-  font-size: 20px;
-  font-weight: 500;
-  color: #a6b0b6;
-  display: inline;
-}
+.energy {
+  height: 20px;
+  width: 20px;
+  margin: 0 4px;
+  display: inline-block;
 
-h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #2a3c4b;
-  display: inline;
-}
+  &.Colorless {
+    background-image: url('../../assets/icons/colorless.png');
+    background-repeat: no-repeat;
+  }
 
-h5 {
-  font-size: 12px;
-  font-weight: 300;
-  color: #2a3c4b;
-  text-transform: uppercase;
-  display: inline;
-}
+  &.Darkness {
+    background-image: url('../../assets/icons/darkness.png');
+    background-repeat: no-repeat;
+  }
 
-p {
-  margin: 10px 0;
-  color: #a6b0b6;
+  &.Fairy {
+    background-image: url('../../assets/icons/fairy.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Fighting {
+    background-image: url('../../assets/images/close-icon.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Fire {
+    background-image: url('../../assets/icons/fire.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Grass {
+    background-image: url('../../assets/icons/grass.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Lightning {
+    background-image: url('../../assets/icons/lightning.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Metal {
+    background-image: url('../../assets/icons/metal.png');
+    background-repeat: no-repeat;
+  }
+
+  &.Psychic {
+    background-image: url('../../assets/icons/psychic.png');
+    background-repeat: no-repeat;
+  }
+
+  .water {
+    background-image: url('../../assets/icons/water.png');
+    background-repeat: no-repeat;
+  }
+
+  .colorless {
+    background-image: url('../../assets/icons/colorless.png');
+    background-repeat: no-repeat;
+  }
+
+  .colorless {
+    background-image: url('../../assets/icons/colorless.png');
+    background-repeat: no-repeat;
+  }
 }

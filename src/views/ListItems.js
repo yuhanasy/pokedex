@@ -50,7 +50,7 @@ class ListItems extends Component {
       .then(res => res.data)
       .then(data => {
         const isLoading = false
-        this.setState({ items: data[category].slice(0, 4), isLoading })
+        this.setState({ items: data[category], isLoading })
       })
       .catch(e => {
         const isError = true
@@ -61,11 +61,11 @@ class ListItems extends Component {
 
   renderCategoryList = (items, category) => {
     return items.map((item, idx) => (
-      <Card key={idx}>
-        <Link to={`/cards?${category}=${item}`}>
+      <Link to={`/cards?${category}=${item}`} key={idx}>
+        <Card>
           <div>{item}</div>
-        </Link>
-      </Card>
+        </Card>
+      </Link>
     ))
   }
 

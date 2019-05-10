@@ -51,7 +51,7 @@ class Details extends Component {
                 <img src={card.imageUrl} alt={card.name} />
               </Card>
             </div>
-            <div className="card-details">
+            <div>
               <CardDetails card={card} />
             </div>
           </Grid>
