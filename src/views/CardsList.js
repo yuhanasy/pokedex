@@ -32,7 +32,7 @@ class CardsList extends Component {
   renderCards = cards => {
     return cards.map((card, idx) => (
       <Card key={idx}>
-        <Link to="/cards">
+        <Link to={`/cards/${card.id}`}>
           <img src={card.imageUrl} alt={card.name} />
         </Link>
       </Card>

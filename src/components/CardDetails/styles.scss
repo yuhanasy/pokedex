@@ -1,0 +1,42 @@
+.detail-header {
+  width: 400px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+h2 {
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2a3c4b;
+  display: inline;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #a6b0b6;
+  display: inline;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2a3c4b;
+  display: inline;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 300;
+  color: #2a3c4b;
+  text-transform: uppercase;
+  display: inline;
+}
+
+p {
+  margin: 10px 0;
+  color: #a6b0b6;
+}

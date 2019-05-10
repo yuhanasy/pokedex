@@ -13,9 +13,9 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/cards" component={CardsList} />
-          <Route path="/:category" component={ListItems} />
+          <Route path="/cards" component={CardsList} exact />
           <Route path="/cards/:card_id" component={Details} />
+          <Route path="/:category" component={ListItems} />
         </Switch>
       </div>
     </BrowserRouter>

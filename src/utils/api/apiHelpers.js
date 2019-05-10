@@ -15,3 +15,7 @@ export const getCards = (params, paramsName) => {
 export const getByCategory = category => {
   return pokemontcg.get(category)
 }
+
+export const getCardDetails = id => {
+  return pokemontcg.get(`/cards/${id}`)
+}
